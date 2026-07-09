@@ -1,84 +1,115 @@
 /* =========================================================
    Ask Dr. Lisa — HCP Portal
-   Vimeo modal handling:
-   - On page load: auto-open the modal showing a "Play with sound"
-     overlay. Clicking it plays the intro Vimeo video WITH audio
-     (allowed because the click is a user gesture).
-   - On FAQ click: build the embed URL from the clicked button's
-     data-vimeo-id and load it into the iframe with autoplay + sound.
-   - On close: clear the iframe src so the video STOPS and no
-     audio keeps playing in the background.
+   Load sequence:
+     1. Logo GIF loader shows for LOADER_MS (10s).
+     2. HCP disclaimer gate — user must confirm they are an HCP.
+     3. Intro Vimeo video modal with a "Play with sound" overlay
+        (click plays WITH audio; auto-sound is blocked by browsers).
+   FAQ rows open the same video modal and play on click.
+   Closing any video modal clears the iframe so playback STOPS.
    ========================================================= */
 (function () {
-  "use strict";
+  'use strict';
 
-  /* ---- CONFIG: change this to your intro/welcome video ID ---- */
-  var INTRO_VIMEO_ID = "76979871"; // <-- edit me
-  var INTRO_TITLE = "Welcome";
-  var AUTOPLAY_INTRO = true;       // set false to disable auto-open on load
+  /* -------------------------- CONFIG -------------------------- */
+  var LOADER_MS = 5000; // loader duration in ms
+  var INTRO_VIMEO_ID = '76979871'; // intro/welcome video id
+  var INTRO_TITLE = 'Welcome';
+  var AUTOPLAY_INTRO = true; // show intro video after the gate
   /* ------------------------------------------------------------ */
 
-  var modalEl = document.getElementById("videoModal");
-  var iframe = document.getElementById("vimeoFrame");
-  var labelEl = document.getElementById("videoModalLabel");
-  var overlay = document.getElementById("introPlayBtn");
+  var loaderEl = document.getElementById('loader');
+  var hcpEl = document.getElementById('hcpModal');
+  var confirmBtn = document.getElementById('hcpConfirmBtn');
+  var modalEl = document.getElementById('videoModal');
+  var iframe = document.getElementById('vimeoFrame');
+  var labelEl = document.getElementById('videoModalLabel');
+  var overlay = document.getElementById('introPlayBtn');
 
-  if (!modalEl || !iframe) return;
-
-  // Build a Vimeo player URL (unmuted autoplay by default).
   function buildVimeoUrl(id) {
     var params = [
-      "autoplay=1",
-      "title=0",
-      "byline=0",
-      "portrait=0",
-      "dnt=1" // do-not-track
-    ].join("&");
-    return "https://player.vimeo.com/video/" + encodeURIComponent(id) + "?" + params;
+      'autoplay=1',
+      'title=0',
+      'byline=0',
+      'portrait=0',
+      'dnt=1',
+    ].join('&');
+    return (
+      'https://player.vimeo.com/video/' + encodeURIComponent(id) + '?' + params
+    );
   }
 
   function hideOverlay() {
     if (overlay) overlay.hidden = true;
   }
 
-  // FAQ clicks: a real user gesture, so audio is allowed immediately.
-  modalEl.addEventListener("show.bs.modal", function (event) {
-    var trigger = event.relatedTarget;
-    if (!trigger) return; // programmatic show (intro) is handled separately
-
-    hideOverlay();
-    var videoId = trigger.getAttribute("data-vimeo-id");
-    var title = trigger.getAttribute("data-faq-title");
-
-    if (title && labelEl) labelEl.textContent = title;
-    if (videoId) iframe.src = buildVimeoUrl(videoId);
-  });
-
-  // Stop playback and reset when the modal closes.
-  modalEl.addEventListener("hidden.bs.modal", function () {
-    iframe.src = "";
-    hideOverlay();
-    if (labelEl) labelEl.textContent = "Video";
-  });
-
-  // Overlay click = user gesture -> intro plays WITH sound.
-  if (overlay) {
-    overlay.addEventListener("click", function () {
-      if (!INTRO_VIMEO_ID) return;
-      iframe.src = buildVimeoUrl(INTRO_VIMEO_ID);
+  /* ---------------- Video modal wiring ---------------- */
+  if (modalEl && iframe) {
+    // FAQ clicks: real user gesture -> audio allowed immediately.
+    modalEl.addEventListener('show.bs.modal', function (event) {
+      var trigger = event.relatedTarget;
+      if (!trigger) return; // programmatic (intro) is handled via overlay
       hideOverlay();
+      var videoId = trigger.getAttribute('data-vimeo-id');
+      var title = trigger.getAttribute('data-faq-title');
+      if (title && labelEl) labelEl.textContent = title;
+      if (videoId) iframe.src = buildVimeoUrl(videoId);
+    });
+
+    modalEl.addEventListener('hidden.bs.modal', function () {
+      iframe.src = '';
+      hideOverlay();
+      if (labelEl) labelEl.textContent = 'Video';
+    });
+
+    if (overlay) {
+      overlay.addEventListener('click', function () {
+        if (!INTRO_VIMEO_ID) return;
+        iframe.src = buildVimeoUrl(INTRO_VIMEO_ID);
+        hideOverlay();
+      });
+    }
+  }
+
+  function showIntroVideo() {
+    if (!AUTOPLAY_INTRO || !INTRO_VIMEO_ID || !modalEl || !overlay) return;
+    if (typeof bootstrap === 'undefined' || !bootstrap.Modal) return;
+    if (labelEl) labelEl.textContent = INTRO_TITLE;
+    iframe.src = ''; // wait for the user click
+    overlay.hidden = false; // "Play with sound" prompt
+    bootstrap.Modal.getOrCreateInstance(modalEl).show();
+  }
+
+  /* ---------------- HCP gate ---------------- */
+  function showHcpGate() {
+    if (typeof bootstrap === 'undefined' || !bootstrap.Modal || !hcpEl) {
+      showIntroVideo(); // graceful fallback
+      return;
+    }
+    var gate = bootstrap.Modal.getOrCreateInstance(hcpEl);
+    // After the gate is dismissed via confirm, launch the intro video.
+    hcpEl.addEventListener('hidden.bs.modal', function onHidden() {
+      hcpEl.removeEventListener('hidden.bs.modal', onHidden);
+      showIntroVideo();
+    });
+    gate.show();
+  }
+
+  if (confirmBtn && hcpEl) {
+    confirmBtn.addEventListener('click', function () {
+      bootstrap.Modal.getOrCreateInstance(hcpEl).hide();
     });
   }
 
-  // --------- Auto-open the intro modal once on page load ---------
-  window.addEventListener("DOMContentLoaded", function () {
-    if (!AUTOPLAY_INTRO || !INTRO_VIMEO_ID || !overlay) return;
-    if (typeof bootstrap === "undefined" || !bootstrap.Modal) return;
-
-    if (labelEl) labelEl.textContent = INTRO_TITLE;
-    iframe.src = "";        // don't load until the user clicks
-    overlay.hidden = false; // show the "Play with sound" prompt
-
-    bootstrap.Modal.getOrCreateInstance(modalEl).show();
+  /* ---------------- Loader -> gate ---------------- */
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      if (loaderEl) {
+        loaderEl.classList.add('is-hidden');
+        setTimeout(showHcpGate, 500); // wait for fade-out
+      } else {
+        showHcpGate();
+      }
+    }, LOADER_MS);
   });
 })();

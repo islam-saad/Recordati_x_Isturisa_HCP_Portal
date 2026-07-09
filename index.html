@@ -7,12 +7,18 @@
   <title>Ask Dr. Lisa — Your AI Clinical Practice Guide for ISTURISA&reg; (osilodrostat)</title>
   <meta name="description" content="Ask Dr. Lisa: evidence-based answers to your clinical questions about using ISTURISA (osilodrostat) for Cushing's syndrome. For healthcare professionals only." />
 
-  <!-- Bootstrap 5 -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap 5 (bundled locally — no CDN dependency) -->
+  <link href="assets/vendor/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+  <!-- ===================== LOADER ===================== -->
+  <!-- Drop your animated logo at assets/logo-loader.gif -->
+  <div id="loader" class="loader" role="status" aria-live="polite" aria-label="Loading">
+    <img class="loader__gif" src="assets/logo-loader.gif" alt="" />
+  </div>
+
   <main class="portal">
     <!-- ===================== HERO ===================== -->
     <header class="hero" role="banner">
@@ -26,13 +32,10 @@
         <h2 id="faqs-heading" class="faqs__title">FAQs</h2>
 
         <ul class="faq-list" role="list">
-          <!--
-            To set a real video: change the data-vimeo-id value on each button.
-            Example: data-vimeo-id="76979871"
-          -->
+          <!-- To set a real video: change the data-vimeo-id on each button. -->
           <li class="faq-item">
-            <button type="button" class="faq-item__btn" data-vimeo-id="76979871" data-faq-title="How much does Coda AI cost?" data-bs-toggle="modal" data-bs-target="#videoModal">
-              <span class="faq-item__text">How much does Coda AI cost?</span>
+            <button type="button" class="faq-item__btn" data-vimeo-id="76979871" data-faq-title="For which patients can I consider ISTURISA&reg;?" data-bs-toggle="modal" data-bs-target="#videoModal">
+              <span class="faq-item__text">For which patients can I consider ISTURISA&reg;?</span>
               <span class="faq-item__play" aria-hidden="true">
                 <svg viewBox="0 0 24 24" focusable="false">
                   <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.4" />
@@ -44,8 +47,8 @@
           </li>
 
           <li class="faq-item">
-            <button type="button" class="faq-item__btn" data-vimeo-id="76979871" data-faq-title="What models does Coda AI leverage?" data-bs-toggle="modal" data-bs-target="#videoModal">
-              <span class="faq-item__text">What models does Coda AI leverage?</span>
+            <button type="button" class="faq-item__btn" data-vimeo-id="76979871" data-faq-title="What baseline assessments should I perform before initiating ISTURISA&reg;?" data-bs-toggle="modal" data-bs-target="#videoModal">
+              <span class="faq-item__text">What baseline assessments should I perform before initiating ISTURISA&reg;?</span>
               <span class="faq-item__play" aria-hidden="true">
                 <svg viewBox="0 0 24 24" focusable="false">
                   <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.4" />
@@ -57,8 +60,8 @@
           </li>
 
           <li class="faq-item">
-            <button type="button" class="faq-item__btn" data-vimeo-id="76979871" data-faq-title="How does Coda AI use my data?" data-bs-toggle="modal" data-bs-target="#videoModal">
-              <span class="faq-item__text">How does Coda AI use my data?</span>
+            <button type="button" class="faq-item__btn" data-vimeo-id="76979871" data-faq-title="How should I initiate and titrate ISTURISA&reg; therapy?" data-bs-toggle="modal" data-bs-target="#videoModal">
+              <span class="faq-item__text">How should I initiate and titrate ISTURISA&reg; therapy?</span>
               <span class="faq-item__play" aria-hidden="true">
                 <svg viewBox="0 0 24 24" focusable="false">
                   <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.4" />
@@ -70,8 +73,86 @@
           </li>
 
           <li class="faq-item">
-            <button type="button" class="faq-item__btn" data-vimeo-id="76979871" data-faq-title="How can I learn more about using Coda AI for work?" data-bs-toggle="modal" data-bs-target="#videoModal">
-              <span class="faq-item__text">How can I learn more about using Coda AI for work?</span>
+            <button type="button" class="faq-item__btn" data-vimeo-id="76979871" data-faq-title="How should I monitor my patients during treatment with ISTURISA&reg;?" data-bs-toggle="modal" data-bs-target="#videoModal">
+              <span class="faq-item__text">How should I monitor my patients during treatment with ISTURISA&reg;?</span>
+              <span class="faq-item__play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.4" />
+                  <path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" />
+                </svg>
+              </span>
+              <span class="visually-hidden">Play video</span>
+            </button>
+          </li>
+
+          <li class="faq-item">
+            <button type="button" class="faq-item__btn" data-vimeo-id="76979871" data-faq-title="How should I monitor for and manage hypocortisolism during treatment with ISTURISA&reg;?" data-bs-toggle="modal" data-bs-target="#videoModal">
+              <span class="faq-item__text">How should I monitor for and manage hypocortisolism during treatment with ISTURISA&reg;?</span>
+              <span class="faq-item__play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.4" />
+                  <path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" />
+                </svg>
+              </span>
+              <span class="visually-hidden">Play video</span>
+            </button>
+          </li>
+
+          <li class="faq-item">
+            <button type="button" class="faq-item__btn" data-vimeo-id="76979871" data-faq-title="Beyond cortisol control, what effects can ISTURISA&reg; have on my Cushing&rsquo;s patients&rsquo; comorbidities?" data-bs-toggle="modal" data-bs-target="#videoModal">
+              <span class="faq-item__text">Beyond cortisol control, what effects can ISTURISA&reg; have on my Cushing&rsquo;s patients&rsquo; comorbidities?</span>
+              <span class="faq-item__play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.4" />
+                  <path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" />
+                </svg>
+              </span>
+              <span class="visually-hidden">Play video</span>
+            </button>
+          </li>
+
+          <li class="faq-item">
+            <button type="button" class="faq-item__btn" data-vimeo-id="76979871" data-faq-title="What should I know about the long-term safety of ISTURISA&reg;?" data-bs-toggle="modal" data-bs-target="#videoModal">
+              <span class="faq-item__text">What should I know about the long-term safety of ISTURISA&reg;?</span>
+              <span class="faq-item__play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.4" />
+                  <path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" />
+                </svg>
+              </span>
+              <span class="visually-hidden">Play video</span>
+            </button>
+          </li>
+
+          <li class="faq-item">
+            <button type="button" class="faq-item__btn" data-vimeo-id="76979871" data-faq-title="Can ISTURISA&reg; help my patients maintain cortisol normalization over time?" data-bs-toggle="modal" data-bs-target="#videoModal">
+              <span class="faq-item__text">Can ISTURISA&reg; help my patients maintain cortisol normalization over time?</span>
+              <span class="faq-item__play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.4" />
+                  <path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" />
+                </svg>
+              </span>
+              <span class="visually-hidden">Play video</span>
+            </button>
+          </li>
+
+          <li class="faq-item">
+            <button type="button" class="faq-item__btn" data-vimeo-id="76979871" data-faq-title="How quickly can I expect to see a response with ISTURISA&reg;?" data-bs-toggle="modal" data-bs-target="#videoModal">
+              <span class="faq-item__text">How quickly can I expect to see a response with ISTURISA&reg;?</span>
+              <span class="faq-item__play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.4" />
+                  <path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" />
+                </svg>
+              </span>
+              <span class="visually-hidden">Play video</span>
+            </button>
+          </li>
+
+          <li class="faq-item">
+            <button type="button" class="faq-item__btn" data-vimeo-id="76979871" data-faq-title="How does ISTURISA&reg; reduce cortisol levels?" data-bs-toggle="modal" data-bs-target="#videoModal">
+              <span class="faq-item__text">How does ISTURISA&reg; reduce cortisol levels?</span>
               <span class="faq-item__play" aria-hidden="true">
                 <svg viewBox="0 0 24 24" focusable="false">
                   <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.4" />
@@ -83,10 +164,62 @@
           </li>
         </ul>
 
+        <!-- ===================== DOWNLOADS ===================== -->
+        <div class="downloads" aria-label="Resource downloads">
+          <a class="download-btn" href="#" download>
+            <span class="download-btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 3v10m0 0l-4-4m4 4l4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M4 17v2a1 1 0 001 1h14a1 1 0 001-1v-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <span class="download-btn__label">Download Patient Guidance</span>
+          </a>
+
+          <a class="download-btn" href="#" download>
+            <span class="download-btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 3v10m0 0l-4-4m4 4l4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M4 17v2a1 1 0 001 1h14a1 1 0 001-1v-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <span class="download-btn__label">Download PIL</span>
+          </a>
+        </div>
+
         <p class="faqs__footer">This portal is intended for healthcare professionals only</p>
       </div>
     </section>
   </main>
+
+  <!-- ===================== HCP DISCLAIMER GATE ===================== -->
+  <div class="modal fade" id="hcpModal" data-bs-backdrop="static" data-bs-keyboard="false"
+       tabindex="-1" role="alertdialog" aria-labelledby="hcpModalLabel" aria-describedby="hcpModalDesc" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content hcp-modal">
+        <div class="modal-header hcp-modal__header">
+          <span class="hcp-modal__badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M12 2l8 3v6c0 5-3.4 8.5-8 11-4.6-2.5-8-6-8-11V5l8-3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+              <path d="M12 8v6M9 11h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </span>
+          <h2 class="modal-title h5" id="hcpModalLabel">For Healthcare Professionals</h2>
+        </div>
+        <div class="modal-body">
+          <p id="hcpModalDesc" class="hcp-modal__text">
+            This portal is intended for healthcare professionals only. The information provided
+            relates to ISTURISA&reg; (osilodrostat) and is not intended for the general public.
+            By continuing, you confirm that you are a healthcare professional.
+          </p>
+        </div>
+        <div class="modal-footer hcp-modal__footer">
+          <a href="https://www.recordatirarediseases.com" id="hcpExitBtn" class="btn btn-outline-secondary">Exit</a>
+          <button type="button" id="hcpConfirmBtn" class="btn btn-hcp">I am a healthcare professional</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ===================== VIDEO MODAL ===================== -->
   <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
@@ -109,15 +242,15 @@
                 <path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" />
               </svg>
             </span>
-            <span class="intro-overlay__label">Play</span>
+            <span class="intro-overlay__label">Play with sound</span>
           </button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Bootstrap 5 JS bundle -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap 5 JS bundle (bundled locally — no CDN dependency) -->
+  <script src="assets/vendor/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
 
