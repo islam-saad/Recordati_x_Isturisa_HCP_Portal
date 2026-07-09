@@ -1,0 +1,166 @@
+/* =========================================================
+   Ask Dr. Lisa — HCP Portal
+   Palette sampled from the approved mockup:
+   ========================================================= */
+:root {
+  --brand-green:   #62BB45;  /* ASK DR. LISA */
+  --brand-magenta: #D32145;  /* subtitle */
+  --brand-red:     #CA2A4C;  /* FAQs heading */
+  --section-gray:  #B8B9BB;  /* body / FAQ background (matches hero bottom edge) */
+  --header-gray:   #737373;  /* top bar */
+  --rule:          rgba(255, 255, 255, 0.55);
+  --text-white:    #ffffff;
+  --max-width:     1000px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--section-gray);
+  color: var(--text-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+.portal {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  background-color: var(--section-gray);
+}
+
+/* ---------------------- HERO ---------------------- */
+.hero {
+  line-height: 0;               /* remove inline-image gap */
+  background-color: var(--section-gray);
+}
+
+.hero__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------------------- FAQs ---------------------- */
+.faqs {
+  background-color: var(--section-gray);
+  padding: 8px 0 40px;
+}
+
+.faqs .container {
+  max-width: var(--max-width);
+}
+
+.faqs__title {
+  text-align: center;
+  color: var(--brand-red);
+  font-weight: 800;
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  letter-spacing: 0.5px;
+  margin: 12px 0 28px;
+}
+
+/* ---- FAQ list ---- */
+.faq-list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--rule);
+}
+
+.faq-item__btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: transparent;
+  border: 0;
+  color: var(--text-white);
+  text-align: left;
+  padding: 26px 8px;
+  cursor: pointer;
+  transition: background-color 0.18s ease, padding-left 0.18s ease;
+}
+
+.faq-item__btn:hover,
+.faq-item__btn:focus-visible {
+  background-color: rgba(255, 255, 255, 0.10);
+  padding-left: 16px;
+  outline: none;
+}
+
+.faq-item__btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+}
+
+.faq-item__text {
+  font-size: clamp(1.05rem, 2.4vw, 1.6rem);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.faq-item__play {
+  flex: 0 0 auto;
+  width: clamp(40px, 6vw, 54px);
+  height: clamp(40px, 6vw, 54px);
+  color: var(--text-white);
+  transition: transform 0.18s ease, color 0.18s ease;
+}
+
+.faq-item__play svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.faq-item__btn:hover .faq-item__play,
+.faq-item__btn:focus-visible .faq-item__play {
+  transform: scale(1.08);
+  color: var(--brand-green);
+}
+
+/* ---------------------- FOOTER ---------------------- */
+.faqs__footer {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.85rem, 1.8vw, 1rem);
+  margin: 44px 0 0;
+}
+
+/* ---------------------- MODAL ---------------------- */
+.modal-content {
+  border: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.modal-header {
+  background-color: var(--header-gray);
+  color: #fff;
+  border-bottom: 0;
+}
+
+.modal-header .btn-close {
+  filter: invert(1) grayscale(1) brightness(1.8);
+}
+
+.modal-body {
+  padding: 0;
+  background: #000;
+}
+
+/* ---------------------- RESPONSIVE ---------------------- */
+@media (max-width: 575.98px) {
+  .faq-item__btn { padding: 20px 4px; }
+  .faqs__title  { margin: 8px 0 18px; }
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ask Dr. Lisa — Your AI Clinical Practice Guide for ISTURISA&reg; (osilodrostat)</title>
+  <meta name="description" content="Ask Dr. Lisa: evidence-based answers to your clinical questions about using ISTURISA (osilodrostat) for Cushing's syndrome. For healthcare professionals only." />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="portal">
+    <!-- ===================== HERO ===================== -->
+    <header class="hero" role="banner">
+      <!-- header.jpg is a ready-made banner (logos, doctor, title). -->
+      <img class="hero__img" src="assets/header.jpg" alt="Ask Dr. Lisa — Your AI Clinical Practice Guide for ISTURISA (osilodrostat). Get evidence-based answers to your clinical questions about using ISTURISA for Cushing's syndrome. Isturisa and Recordati Rare Diseases logos shown." />
+    </header>
+
+    <!-- ===================== FAQs ===================== -->
+    <section class="faqs" aria-labelledby="faqs-heading">
+      <div class="container">
+        <h2 id="faqs-heading" class="faqs__title">FAQs</h2>
+
+        <ul class="faq-list" role="list">
+          <!--
+            To set a real video: change the data-vimeo-id value on each button.
+            Example: data-vimeo-id="76979871"
+          -->
+          <li class="faq-item">
+            <button type="button" class="faq-item__btn" data-vimeo-id="76979871" data-faq-title="How much does Coda AI cost?" data-bs-toggle="modal" data-bs-target="#videoModal">
+              <span class="faq-item__text">How much does Coda AI cost?</span>
+              <span class="faq-item__play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.4" />
+                  <path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" />
+                </svg>
+              </span>
+              <span class="visually-hidden">Play video</span>
+            </button>
+          </li>
+
+          <li class="faq-item">
+            <button type="button" class="faq-item__btn" data-vimeo-id="76979871" data-faq-title="What models does Coda AI leverage?" data-bs-toggle="modal" data-bs-target="#videoModal">
+              <span class="faq-item__text">What models does Coda AI leverage?</span>
+              <span class="faq-item__play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.4" />
+                  <path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" />
+                </svg>
+              </span>
+              <span class="visually-hidden">Play video</span>
+            </button>
+          </li>
+
+          <li class="faq-item">
+            <button type="button" class="faq-item__btn" data-vimeo-id="76979871" data-faq-title="How does Coda AI use my data?" data-bs-toggle="modal" data-bs-target="#videoModal">
+              <span class="faq-item__text">How does Coda AI use my data?</span>
+              <span class="faq-item__play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.4" />
+                  <path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" />
+                </svg>
+              </span>
+              <span class="visually-hidden">Play video</span>
+            </button>
+          </li>
+
+          <li class="faq-item">
+            <button type="button" class="faq-item__btn" data-vimeo-id="76979871" data-faq-title="How can I learn more about using Coda AI for work?" data-bs-toggle="modal" data-bs-target="#videoModal">
+              <span class="faq-item__text">How can I learn more about using Coda AI for work?</span>
+              <span class="faq-item__play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.4" />
+                  <path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" />
+                </svg>
+              </span>
+              <span class="visually-hidden">Play video</span>
+            </button>
+          </li>
+        </ul>
+
+        <p class="faqs__footer">This portal is intended for healthcare professionals only</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== VIDEO MODAL ===================== -->
+  <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title h6" id="videoModalLabel">Video</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="ratio ratio-16x9">
+            <!-- src is injected on open and cleared on close by script.js -->
+            <iframe id="vimeoFrame" src="" title="ISTURISA clinical video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS bundle -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
