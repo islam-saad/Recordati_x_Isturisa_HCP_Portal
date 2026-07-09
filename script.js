@@ -101,6 +101,19 @@
     });
   }
 
+  /* ---------------- Replay welcome video (hero button) ---------------- */
+  var replayBtn = document.getElementById('replayIntroBtn');
+  if (replayBtn && modalEl && iframe) {
+    replayBtn.addEventListener('click', function () {
+      if (!INTRO_VIMEO_ID) return;
+      if (typeof bootstrap === 'undefined' || !bootstrap.Modal) return;
+      hideOverlay(); // user gesture -> play WITH sound directly
+      if (labelEl) labelEl.textContent = INTRO_TITLE;
+      iframe.src = buildVimeoUrl(INTRO_VIMEO_ID);
+      bootstrap.Modal.getOrCreateInstance(modalEl).show();
+    });
+  }
+
   /* ---------------- Loader -> gate ---------------- */
   window.addEventListener('load', function () {
     setTimeout(function () {

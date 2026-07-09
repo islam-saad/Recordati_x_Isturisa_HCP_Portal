@@ -138,7 +138,11 @@ body {
   color: #fff;
 }
 
-.hcp-modal__badge svg { width: 100%; height: 100%; display: block; }
+.hcp-modal__badge svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 
 .hcp-modal__header .modal-title {
   font-weight: 700;
@@ -194,12 +198,18 @@ body {
 }
 
 @media (max-width: 480px) {
-  .hcp-modal__footer { flex-direction: column-reverse; }
-  .hcp-modal__footer .btn { width: 100%; }
+  .hcp-modal__footer {
+    flex-direction: column-reverse;
+  }
+
+  .hcp-modal__footer .btn {
+    width: 100%;
+  }
 }
 
 /* ---------------------- HERO ---------------------- */
 .hero {
+  position: relative;
   line-height: 0;
   /* remove inline-image gap */
   background-color: var(--section-gray);
@@ -209,6 +219,91 @@ body {
   display: block;
   width: 100%;
   height: auto;
+}
+
+/* ---- Replay welcome video button (pulsing waves) ---- */
+.replay-btn {
+  position: absolute;
+  /* lower-left, beside the doctor; scales with the banner */
+  left: 89%;
+  top: 90%;
+  transform: translate(-50%, -50%);
+  width: clamp(48px, 6vw, 72px);
+  height: clamp(48px, 6vw, 72px);
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.replay-btn__core {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--brand-green);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+  transition: transform 0.18s ease, background-color 0.18s ease;
+}
+
+.replay-btn__core svg {
+  width: 46%;
+  height: 46%;
+  margin-left: 8%;
+  /* optically center the triangle */
+}
+
+.replay-btn:hover .replay-btn__core,
+.replay-btn:focus-visible .replay-btn__core {
+  transform: scale(1.08);
+  background: #55a83c;
+}
+
+.replay-btn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+  border-radius: 50%;
+}
+
+.replay-btn__wave {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--brand-green);
+  opacity: 0.55;
+  z-index: -1;
+  animation: replay-pulse 2.4s ease-out infinite;
+}
+
+.replay-btn__wave:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.replay-btn__wave:nth-child(3) {
+  animation-delay: 1.6s;
+}
+
+@keyframes replay-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .replay-btn__wave {
+    animation: none;
+    opacity: 0;
+  }
 }
 
 /* ---------------------- FAQs ---------------------- */
