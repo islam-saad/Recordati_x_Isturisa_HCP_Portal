@@ -101,6 +101,16 @@
             <!-- src is injected on open and cleared on close by script.js -->
             <iframe id="vimeoFrame" src="" title="ISTURISA clinical video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
           </div>
+          <!-- Click-to-start overlay (intro only) so the video can play WITH sound -->
+          <button type="button" id="introPlayBtn" class="intro-overlay" hidden aria-label="Play intro video with sound">
+            <span class="intro-overlay__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.2" />
+                <path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" />
+              </svg>
+            </span>
+            <span class="intro-overlay__label">Play</span>
+          </button>
         </div>
       </div>
     </div>
