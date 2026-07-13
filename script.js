@@ -96,7 +96,17 @@
   }
 
   if (confirmBtn && hcpEl) {
+    // Enable "Enter" only when the HCP checkbox is ticked.
+    var confirmCheck = document.getElementById('hcpConfirmCheck');
+    if (confirmCheck) {
+      confirmBtn.disabled = !confirmCheck.checked;
+      confirmCheck.addEventListener('change', function () {
+        confirmBtn.disabled = !confirmCheck.checked;
+      });
+    }
+
     confirmBtn.addEventListener('click', function () {
+      if (confirmCheck && !confirmCheck.checked) return; // safety guard
       bootstrap.Modal.getOrCreateInstance(hcpEl).hide();
     });
   }

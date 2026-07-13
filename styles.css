@@ -156,11 +156,52 @@ body {
 }
 
 .hcp-modal__text {
-  margin: 0;
+  margin: 0 0 14px;
   color: #2b2b2b;
   font-size: 1.02rem;
   line-height: 1.6;
   text-align: center;
+}
+
+.hcp-modal__text:last-of-type { margin-bottom: 0; }
+
+/* HCP confirmation checkbox */
+.hcp-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 20px 0 4px;
+  padding: 14px 16px;
+  background: #f5f6f7;
+  border: 1px solid #e2e4e6;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.hcp-checkbox__input {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  accent-color: var(--brand-red);
+  cursor: pointer;
+}
+
+.hcp-checkbox__label {
+  color: #2b2b2b;
+  font-size: 0.96rem;
+  line-height: 1.5;
+}
+
+.btn-hcp:disabled,
+.btn-hcp[disabled] {
+  background: #d8a4b0;
+  border-color: #d8a4b0;
+  color: #fff;
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 1;
 }
 
 .hcp-modal__footer {

@@ -216,18 +216,29 @@
               <path d="M12 8v6M9 11h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
             </svg>
           </span>
-          <h2 class="modal-title h5" id="hcpModalLabel">For Healthcare Professionals</h2>
+          <h2 class="modal-title h5" id="hcpModalLabel">Healthcare Professional Confirmation</h2>
         </div>
         <div class="modal-body">
           <p id="hcpModalDesc" class="hcp-modal__text">
-            This portal is intended for healthcare professionals only. The information provided
-            relates to ISTURISA&reg; (osilodrostat) and is not intended for the general public.
-            By continuing, you confirm that you are a healthcare professional.
+            This website contains medical information intended exclusively for qualified
+            Healthcare Professionals (HCPs).
           </p>
+          <p class="hcp-modal__text">
+            By ticking the box below, I confirm that I am a qualified Healthcare Professional
+            and acknowledge that the information provided on this website is intended solely
+            for professional medical education and practice.
+          </p>
+
+          <label class="hcp-checkbox" for="hcpConfirmCheck">
+            <input type="checkbox" id="hcpConfirmCheck" class="hcp-checkbox__input" />
+            <span class="hcp-checkbox__label">
+              I confirm that I am a qualified Healthcare Professional and wish to access this content.
+            </span>
+          </label>
         </div>
         <div class="modal-footer hcp-modal__footer">
           <a href="https://www.recordatirarediseases.com" id="hcpExitBtn" class="btn btn-outline-secondary">Exit</a>
-          <button type="button" id="hcpConfirmBtn" class="btn btn-hcp">I am a healthcare professional</button>
+          <button type="button" id="hcpConfirmBtn" class="btn btn-hcp" disabled>Enter</button>
         </div>
       </div>
     </div>
