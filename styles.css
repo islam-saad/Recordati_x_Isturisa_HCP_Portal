@@ -149,10 +149,10 @@ body {
   letter-spacing: 0.3px;
 }
 
-/* explicit white background + generous padding (fixes black band / no padding) */
+/* explicit white background + generous padding */
 .hcp-modal .modal-body {
   background: #ffffff;
-  padding: 28px 34px 8px;
+  padding: 28px 40px 8px;
 }
 
 .hcp-modal__text {
@@ -163,7 +163,9 @@ body {
   text-align: center;
 }
 
-.hcp-modal__text:last-of-type { margin-bottom: 0; }
+.hcp-modal__text:last-of-type {
+  margin-bottom: 0;
+}
 
 /* HCP confirmation checkbox */
 .hcp-checkbox {
@@ -266,8 +268,8 @@ body {
 .replay-btn {
   position: absolute;
   /* lower-left, beside the doctor; scales with the banner */
-  left: 89%;
-  top: 90%;
+  left: 26%;
+  top: 95%;
   transform: translate(-50%, -50%);
   width: clamp(48px, 6vw, 72px);
   height: clamp(48px, 6vw, 72px);
@@ -351,6 +353,7 @@ body {
 .faqs {
   background-color: var(--section-gray);
   padding: 8px 0 40px;
+  margin-top: 40px;
 }
 
 .faqs .container {
