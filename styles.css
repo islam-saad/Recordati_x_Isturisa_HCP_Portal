@@ -22,6 +22,13 @@
   box-sizing: border-box;
 }
 
+/* Registered-trademark mark: small, raised superscript */
+.reg {
+  font-size: 0.7em;
+  vertical-align: 0.1em;
+  line-height: 0;
+}
+
 html,
 body {
   margin: 0;
