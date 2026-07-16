@@ -12,7 +12,7 @@
   'use strict';
 
   /* -------------------------- CONFIG -------------------------- */
-  var LOADER_MS = 5000; // loader duration in ms
+  var LOADER_MS = 4000; // loader duration in ms
   var INTRO_VIMEO_ID = '76979871'; // intro/welcome video id
   var INTRO_TITLE = 'Welcome';
   var AUTOPLAY_INTRO = true; // show intro video after the gate
