@@ -56,7 +56,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ddd;
+  background: var(--section-gray);
   transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
