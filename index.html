@@ -10,23 +10,26 @@
   <!-- Bootstrap 5 (bundled locally — no CDN dependency) -->
   <link href="assets/vendor/bootstrap.min.css" rel="stylesheet" />
 
-  <!-- Asset version = 20260818-2. Bump the ?v= on styles.css AND script.js together
-       whenever either file changes, so browsers fetch it instead of a cached copy. -->
-  <link rel="stylesheet" href="styles.css?v=20260818-2" />
+  <!-- ASSET VERSION = 20260818-3
+       Every project-owned asset below carries ?v=20260818-3. When you change ANY of them
+       (css, js, header, loader, FAQ thumbnails, PIL), find-and-replace the old
+       version with a new one across this file so browsers refetch instead of
+       serving a cached copy. Bundled vendor files are pinned and stay unversioned. -->
+  <link rel="stylesheet" href="styles.css?v=20260818-3" />
 </head>
 
 <body>
   <!-- ===================== LOADER ===================== -->
   <!-- Drop your animated logo at assets/logo-loader.gif -->
   <div id="loader" class="loader" role="status" aria-live="polite" aria-label="Loading">
-    <img class="loader__gif" src="assets/logo-loader.gif" alt="" />
+    <img class="loader__gif" src="assets/logo-loader.gif?v=20260818-3" alt="" />
   </div>
 
   <main class="portal">
     <!-- ===================== HERO ===================== -->
     <header class="hero" role="banner">
       <!-- header.jpg is a ready-made banner (logos, doctor, title). -->
-      <img class="hero__img" src="assets/header.jpg" alt="Ask Dr. Lisa — Your AI Clinical Practice Guide for ISTURISA (osilodrostat). Get evidence-based answers to your clinical questions about using ISTURISA for Cushing's syndrome. Isturisa and Recordati Rare Diseases logos shown." />
+      <img class="hero__img" src="assets/header.jpg?v=20260818-3" alt="Ask Dr. Lisa — Your AI Clinical Practice Guide for ISTURISA (osilodrostat). Get evidence-based answers to your clinical questions about using ISTURISA for Cushing's syndrome. Isturisa and Recordati Rare Diseases logos shown." />
 
       <!-- Replay the welcome video (animated pulsing waves) -->
       <button type="button" class="replay-btn" id="replayIntroBtn" aria-label="Replay the welcome video">
@@ -48,11 +51,13 @@
 
         <ul class="faq-grid" role="list">
           <!-- To set a real video: change the data-vimeo-id on each card. -->
-          <!-- Thumbnails: drop square (1:1) images at assets/faq/faq-01.jpg ... faq-10.jpg -->
+          <!-- Thumbnails: drop square (1:1) images at assets/faq/faq-01.jpg ... faq-10.jpg,
+               then bump the ASSET VERSION in <head> so the new images aren't served from cache.
+               data-faq-id is the "watched" storage key — do NOT change it. -->
           <li class="faq-item">
             <button type="button" class="faq-card" data-faq-id="faq-01" data-vimeo-id="76979871" data-faq-title="For which patients can I consider ISTURISA&reg;?" data-bs-toggle="modal" data-bs-target="#videoModal">
               <span class="faq-card__img">
-                <img class="faq-card__photo" src="assets/faq/faq-01.jpg" alt="" loading="lazy" decoding="async" />
+                <img class="faq-card__photo" src="assets/faq/faq-01.jpg?v=20260818-3" alt="" loading="lazy" decoding="async" />
                 <span class="faq-card__stamp">
                   <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
                     <path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
@@ -80,7 +85,7 @@
           <li class="faq-item">
             <button type="button" class="faq-card" data-faq-id="faq-02" data-vimeo-id="76979871" data-faq-title="What baseline assessments should I perform before initiating ISTURISA&reg;?" data-bs-toggle="modal" data-bs-target="#videoModal">
               <span class="faq-card__img">
-                <img class="faq-card__photo" src="assets/faq/faq-02.jpg" alt="" loading="lazy" decoding="async" />
+                <img class="faq-card__photo" src="assets/faq/faq-02.jpg?v=20260818-3" alt="" loading="lazy" decoding="async" />
                 <span class="faq-card__stamp">
                   <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
                     <path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
@@ -108,7 +113,7 @@
           <li class="faq-item">
             <button type="button" class="faq-card" data-faq-id="faq-03" data-vimeo-id="76979871" data-faq-title="How should I initiate and titrate ISTURISA&reg; therapy?" data-bs-toggle="modal" data-bs-target="#videoModal">
               <span class="faq-card__img">
-                <img class="faq-card__photo" src="assets/faq/faq-03.jpg" alt="" loading="lazy" decoding="async" />
+                <img class="faq-card__photo" src="assets/faq/faq-03.jpg?v=20260818-3" alt="" loading="lazy" decoding="async" />
                 <span class="faq-card__stamp">
                   <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
                     <path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
@@ -136,7 +141,7 @@
           <li class="faq-item">
             <button type="button" class="faq-card" data-faq-id="faq-04" data-vimeo-id="76979871" data-faq-title="How should I monitor my patients during treatment with ISTURISA&reg;?" data-bs-toggle="modal" data-bs-target="#videoModal">
               <span class="faq-card__img">
-                <img class="faq-card__photo" src="assets/faq/faq-04.jpg" alt="" loading="lazy" decoding="async" />
+                <img class="faq-card__photo" src="assets/faq/faq-04.jpg?v=20260818-3" alt="" loading="lazy" decoding="async" />
                 <span class="faq-card__stamp">
                   <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
                     <path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
@@ -164,7 +169,7 @@
           <li class="faq-item">
             <button type="button" class="faq-card" data-faq-id="faq-05" data-vimeo-id="76979871" data-faq-title="How should I monitor for and manage hypocortisolism during treatment with ISTURISA&reg;?" data-bs-toggle="modal" data-bs-target="#videoModal">
               <span class="faq-card__img">
-                <img class="faq-card__photo" src="assets/faq/faq-05.jpg" alt="" loading="lazy" decoding="async" />
+                <img class="faq-card__photo" src="assets/faq/faq-05.jpg?v=20260818-3" alt="" loading="lazy" decoding="async" />
                 <span class="faq-card__stamp">
                   <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
                     <path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
@@ -192,7 +197,7 @@
           <li class="faq-item">
             <button type="button" class="faq-card" data-faq-id="faq-06" data-vimeo-id="76979871" data-faq-title="Beyond cortisol control, what effects can ISTURISA&reg; have on my Cushing&rsquo;s patients&rsquo; comorbidities?" data-bs-toggle="modal" data-bs-target="#videoModal">
               <span class="faq-card__img">
-                <img class="faq-card__photo" src="assets/faq/faq-06.jpg" alt="" loading="lazy" decoding="async" />
+                <img class="faq-card__photo" src="assets/faq/faq-06.jpg?v=20260818-3" alt="" loading="lazy" decoding="async" />
                 <span class="faq-card__stamp">
                   <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
                     <path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
@@ -220,7 +225,7 @@
           <li class="faq-item">
             <button type="button" class="faq-card" data-faq-id="faq-07" data-vimeo-id="76979871" data-faq-title="What should I know about the long-term safety of ISTURISA&reg;?" data-bs-toggle="modal" data-bs-target="#videoModal">
               <span class="faq-card__img">
-                <img class="faq-card__photo" src="assets/faq/faq-07.jpg" alt="" loading="lazy" decoding="async" />
+                <img class="faq-card__photo" src="assets/faq/faq-07.jpg?v=20260818-3" alt="" loading="lazy" decoding="async" />
                 <span class="faq-card__stamp">
                   <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
                     <path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
@@ -248,7 +253,7 @@
           <li class="faq-item">
             <button type="button" class="faq-card" data-faq-id="faq-08" data-vimeo-id="76979871" data-faq-title="Can ISTURISA&reg; help my patients maintain cortisol normalization over time?" data-bs-toggle="modal" data-bs-target="#videoModal">
               <span class="faq-card__img">
-                <img class="faq-card__photo" src="assets/faq/faq-08.jpg" alt="" loading="lazy" decoding="async" />
+                <img class="faq-card__photo" src="assets/faq/faq-08.jpg?v=20260818-3" alt="" loading="lazy" decoding="async" />
                 <span class="faq-card__stamp">
                   <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
                     <path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
@@ -276,7 +281,7 @@
           <li class="faq-item">
             <button type="button" class="faq-card" data-faq-id="faq-09" data-vimeo-id="76979871" data-faq-title="How quickly can I expect to see a response with ISTURISA&reg;?" data-bs-toggle="modal" data-bs-target="#videoModal">
               <span class="faq-card__img">
-                <img class="faq-card__photo" src="assets/faq/faq-09.jpg" alt="" loading="lazy" decoding="async" />
+                <img class="faq-card__photo" src="assets/faq/faq-09.jpg?v=20260818-3" alt="" loading="lazy" decoding="async" />
                 <span class="faq-card__stamp">
                   <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
                     <path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
@@ -304,7 +309,7 @@
           <li class="faq-item">
             <button type="button" class="faq-card" data-faq-id="faq-10" data-vimeo-id="76979871" data-faq-title="How does ISTURISA&reg; reduce cortisol levels?" data-bs-toggle="modal" data-bs-target="#videoModal">
               <span class="faq-card__img">
-                <img class="faq-card__photo" src="assets/faq/faq-10.jpg" alt="" loading="lazy" decoding="async" />
+                <img class="faq-card__photo" src="assets/faq/faq-10.jpg?v=20260818-3" alt="" loading="lazy" decoding="async" />
                 <span class="faq-card__stamp">
                   <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
                     <path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
@@ -342,7 +347,7 @@
             <span class="download-btn__label">Download Patient Guidance</span>
           </a>
 
-          <a class="download-btn" href="assets/pil.pdf" download>
+          <a class="download-btn" href="assets/pil.pdf?v=20260818-3" download>
             <span class="download-btn__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" focusable="false">
                 <path d="M12 3v10m0 0l-4-4m4 4l4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -427,7 +432,7 @@
 
   <!-- Bootstrap 5 JS bundle (bundled locally — no CDN dependency) -->
   <script src="assets/vendor/bootstrap.bundle.min.js"></script>
-  <script src="script.js?v=20260818-2"></script>
+  <script src="script.js?v=20260818-3"></script>
 </body>
 
 </html>
