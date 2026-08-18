@@ -454,6 +454,50 @@ body {
   transform: scale(1.05);
 }
 
+/* "Watched" stamp — revealed by script.js once the video has been opened */
+.faq-card__stamp {
+  display: none;
+}
+
+.faq-card.is-watched .faq-card__stamp {
+  position: absolute;
+  z-index: 1;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 11px 6px 9px;
+  border-radius: 20px;
+  background: var(--brand-green);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.22);
+}
+
+.faq-card__stamp svg {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  display: block;
+}
+
+.faq-card__stamp-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  line-height: 1;
+}
+
+/* watched cards recede slightly so unwatched ones stand out */
+.faq-card.is-watched .faq-card__photo {
+  opacity: 0.72;
+}
+
+.faq-card.is-watched:hover .faq-card__photo,
+.faq-card.is-watched:focus-visible .faq-card__photo {
+  opacity: 1;
+}
+
 /* Text block */
 .faq-card__text {
   display: flex;

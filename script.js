@@ -26,6 +26,45 @@
   var labelEl = document.getElementById('videoModalLabel');
   var overlay = document.getElementById('introPlayBtn');
 
+  /* ------------- Watched-video memory (localStorage) -------------
+     Cards are keyed by data-faq-id, NOT data-vimeo-id, because every
+     card currently points at the same placeholder video id. */
+  var WATCHED_KEY = 'isturisa-hcp:watched-faqs';
+
+  function readWatched() {
+    try {
+      var stored = JSON.parse(window.localStorage.getItem(WATCHED_KEY));
+      return stored instanceof Array ? stored : [];
+    } catch (err) {
+      return []; // storage blocked (private mode) or a corrupt value
+    }
+  }
+
+  function stampCard(id) {
+    var card = document.querySelector('.faq-card[data-faq-id="' + id + '"]');
+    if (card) card.classList.add('is-watched');
+  }
+
+  function markWatched(id) {
+    if (!id) return;
+    stampCard(id); // stamp first, so the badge shows even if storage fails
+    var list = readWatched();
+    if (list.indexOf(id) !== -1) return;
+    list.push(id);
+    try {
+      window.localStorage.setItem(WATCHED_KEY, JSON.stringify(list));
+    } catch (err) {
+      /* over quota or storage blocked — the stamp lasts for this session only */
+    }
+  }
+
+  function restoreWatched() {
+    var list = readWatched();
+    for (var i = 0; i < list.length; i++) stampCard(list[i]);
+  }
+
+  restoreWatched();
+
   function buildVimeoUrl(id) {
     var params = [
       'autoplay=1',
@@ -52,6 +91,7 @@
       hideOverlay();
       var videoId = trigger.getAttribute('data-vimeo-id');
       var title = trigger.getAttribute('data-faq-title');
+      markWatched(trigger.getAttribute('data-faq-id'));
       if (title && labelEl) labelEl.textContent = title;
       if (videoId) iframe.src = buildVimeoUrl(videoId);
     });
