@@ -544,9 +544,30 @@ body {
 /* ---------------------- FOOTER ---------------------- */
 .faqs__footer {
   text-align: center;
-  color: rgba(255, 255, 255, 0.9);
+  color: #000000;
   font-size: clamp(0.85rem, 1.8vw, 1rem);
   margin: 44px 0 0;
+}
+
+.faqs__address {
+  text-align: center;
+  color: #000000;
+  font-size: clamp(0.72rem, 1.5vw, 0.85rem);
+  line-height: 1.6;
+  max-width: 760px;
+  margin: 14px auto 0;
+}
+
+/* Terms of Use link inside the HCP gate popup */
+.hcp-modal__link {
+  color: var(--brand-red);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.hcp-modal__link:hover,
+.hcp-modal__link:focus-visible {
+  color: #a81f3d;
 }
 
 /* ---------------------- MODAL ---------------------- */
