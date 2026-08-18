@@ -9,7 +9,10 @@
 
   <!-- Bootstrap 5 (bundled locally — no CDN dependency) -->
   <link href="assets/vendor/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Asset version = 20260818. Bump the ?v= on styles.css AND script.js together
+       whenever either file changes, so browsers fetch it instead of a cached copy. -->
+  <link rel="stylesheet" href="styles.css?v=20260818" />
 </head>
 
 <body>
@@ -364,7 +367,7 @@
 
   <!-- Bootstrap 5 JS bundle (bundled locally — no CDN dependency) -->
   <script src="assets/vendor/bootstrap.bundle.min.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js?v=20260818"></script>
 </body>
 
 </html>
