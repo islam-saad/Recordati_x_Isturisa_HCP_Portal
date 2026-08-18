@@ -376,69 +376,125 @@ body {
   margin: 12px 0 28px;
 }
 
-/* ---- FAQ list ---- */
-.faq-list {
+/* ---- FAQ card grid (neumorphic cards) ---- */
+.faq-grid {
   list-style: none;
   margin: 0 auto;
   padding: 0;
-  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px 30px;
 }
 
 .faq-item {
-  border-bottom: 1px solid var(--rule);
+  display: flex;
 }
 
-.faq-item__btn {
+.faq-card {
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  background: transparent;
+  flex-direction: column;
+  background: #ffffff;
   border: 0;
-  color: var(--text-white);
+  padding: 0;
+  border-radius: 30px;
+  overflow: hidden;
   text-align: left;
-  padding: 26px 8px;
   cursor: pointer;
-  transition: background-color 0.18s ease, padding-left 0.18s ease;
+  /* soft-UI shadow tuned to the --section-gray page background */
+  box-shadow: 15px 15px 30px #9a9b9d, -15px -15px 30px #d6d7d9;
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
-.faq-item__btn:hover,
-.faq-item__btn:focus-visible {
-  background-color: rgba(255, 255, 255, 0.10);
-  padding-left: 16px;
+.faq-card:hover,
+.faq-card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
   outline: none;
 }
 
-.faq-item__btn:focus-visible {
+.faq-card:focus-visible {
   outline: 2px solid #fff;
-  outline-offset: -2px;
+  outline-offset: 4px;
 }
 
-.faq-item__text {
-  font-size: clamp(1.05rem, 2.4vw, 1.6rem);
-  font-weight: 400;
-  line-height: 1.25;
+/* Square (1:1) image band */
+.faq-card__img {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  overflow: hidden;
+  background: linear-gradient(140deg, #9d9ea1 0%, #7f8083 100%);
 }
 
-.faq-item__play {
-  flex: 0 0 auto;
-  width: clamp(40px, 6vw, 54px);
-  height: clamp(40px, 6vw, 54px);
-  color: var(--text-white);
-  transition: transform 0.18s ease, color 0.18s ease;
+/* Fallback for browsers without aspect-ratio support */
+@supports not (aspect-ratio: 1 / 1) {
+  .faq-card__img::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
 }
 
-.faq-item__play svg {
+.faq-card__photo {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.faq-card:hover .faq-card__photo,
+.faq-card:focus-visible .faq-card__photo {
+  transform: scale(1.05);
+}
+
+/* Text block */
+.faq-card__text {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.faq-card__title {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #1f1f1f;
+}
+
+/* "Watch video" pill — pinned to the bottom so pills line up across a row */
+.faq-card__tag {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(202, 42, 76, 0.08);
+  color: var(--brand-red);
+}
+
+.faq-card__tag svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
   display: block;
 }
 
-.faq-item__btn:hover .faq-item__play,
-.faq-item__btn:focus-visible .faq-item__play {
-  transform: scale(1.08);
-  color: var(--brand-green);
+.faq-card__tag-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--brand-red);
 }
 
 /* ---------------------- FOOTER ---------------------- */
@@ -525,8 +581,29 @@ body {
 
 /* ---------------------- RESPONSIVE ---------------------- */
 @media (max-width: 575.98px) {
-  .faq-item__btn {
-    padding: 20px 4px;
+  .faq-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px 16px;
+  }
+
+  /* lighter soft-UI shadow so narrow cards don't look heavy */
+  .faq-card {
+    border-radius: 22px;
+    box-shadow: 8px 8px 16px #9a9b9d, -8px -8px 16px #d6d7d9;
+  }
+
+  .faq-card__img {
+    border-top-left-radius: 22px;
+    border-top-right-radius: 22px;
+  }
+
+  .faq-card__text {
+    margin: 14px;
+  }
+
+  .faq-card__title {
+    font-size: 14px;
+    margin-bottom: 12px;
   }
 
   .faqs__title {
